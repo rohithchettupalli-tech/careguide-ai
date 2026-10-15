@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --primary-teal: #176B67;
+    --secondary-teal: #279B91;
+    --soft-mint: #E1F3EC;
+    --pale-aqua: #EAF7F6;
+    --sage-green: #CFE6D9;
+    --warm-ivory: #F7F8F2;
+    --powder-blue: #E7EFFB;
+    --main-text: #203936;
+    --secondary-text: #667A76;
+    --card-surface: #FFFFFF;
+    --border-color: #DCE9E3;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  body {
+    background-color: #F7F8F2;
+    color: #203936;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+/* Subtle organic mesh & medical grid background */
+.medical-bg-pattern {
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(225, 243, 236, 0.7) 0%, transparent 40%),
+    radial-gradient(circle at 90% 15%, rgba(234, 247, 246, 0.8) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(231, 239, 251, 0.5) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(207, 230, 217, 0.6) 0%, transparent 45%),
+    radial-gradient(circle at 20% 85%, rgba(225, 243, 236, 0.7) 0%, transparent 40%);
+}
+
+.subtle-grid {
+  background-size: 36px 36px;
+  background-image: 
+    linear-gradient(to right, rgba(220, 233, 227, 0.35) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(220, 233, 227, 0.35) 1px, transparent 1px);
+}
+
+.subtle-dots {
+  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(39, 155, 145, 0.15) 1px, transparent 1px);
+}
+
+/* Custom subtle animations */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+.animate-float {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 4s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F7F8F2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CFE6D9;
+  border-radius: 9999px;
+  border: 2px solid #F7F8F2;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #279B91;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
